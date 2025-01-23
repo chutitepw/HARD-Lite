@@ -36,7 +36,7 @@ def load_file(file_path, window_size):
     
     return sequenceX, sequenceY
 
-#### Load training file ####
+#### Load training/testing file ####
 def load_file_anomaly(file_path, window_size, training, scaler=None):
     dataset = []
     for files in file_path:
@@ -45,8 +45,8 @@ def load_file_anomaly(file_path, window_size, training, scaler=None):
 
         #print(df.shape)
         #### Prep data sequence for each file ####:
-
         dataset.append(df)
+
     dataset = pd.concat(dataset)
     #print("Data Shape: ", dataset.shape)
 
@@ -84,6 +84,7 @@ def create_sequences(X, y, time_steps):
     for i in range(len(X)-time_steps):
         Xs.append(X[i:(i+time_steps)])
         ys.append(X[i+time_steps])
+
     return np.array(Xs), np.array(ys)
 
 def create_scaler(sequenceX):
@@ -119,6 +120,7 @@ def threshold_calculation(train_mae_loss):
         cut_off = statistics.mean(scores) + (2*statistics.pstdev(scores))
         threshold.append(cut_off)
     print(f'Reconstruction error threshold: {threshold}')
+
     return threshold
 
 def threshold_save(threshold):
