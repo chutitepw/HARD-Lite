@@ -8,9 +8,10 @@ Mkfile.old
 dkms.conf
 *.o
 *.ko
-/K-LEB/ioctl_start
+K-LEB/ioctl_start
 
 # Model Save
 *.keras
 *.sav
-/classifiers/threshold.txt
+classifiers/threshold.txt
+classifiers/__pycache__
