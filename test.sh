@@ -14,7 +14,7 @@ sudo ./ioctl_start -e 00c2,00c0,0729,0129,0229,ff9a -t 10 -o ../data/train/benig
 
 sleep 300
 
-sudo kill -INT $(pgrep ioctl);
+sudo kill -INT $(pgrep ioctl_start);
 
 ## 3. Train the classifier model using LSTM
 
